@@ -1,0 +1,30 @@
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Pelican generated output
+output/
+
+# Local settings (if you create one)
+local_settings.py
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Build artifacts
+build/
+dist/
+
+# Environment variables
+.env
+.env.*
