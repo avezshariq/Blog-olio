@@ -3,6 +3,8 @@ SITENAME = 'Avez Portfolio'
 SITEURL = ""
 
 PATH = "content"
+STATIC_PATHS = ["assets"]
+THEME_TEMPLATES_OVERRIDES = ["templates"]
 
 TIMEZONE = 'Asia/Kolkata'
 
@@ -17,10 +19,8 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = [
-    ("Pelican", "https://getpelican.com/"),
-    ("Python.org", "https://www.python.org/"),
-    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
+    ("GitHub", "https://github.com/avezshariq"),
+    ("Linkedin", "https://www.linkedin.com/in/avezshariq/")
 ]
 
 # Social widget

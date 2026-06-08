@@ -1,5 +1,5 @@
-Title: My First Post
+Title: Home
 Date: 2026-06-08
 Category: Portfolio
 
-Hello from Pelican!
+HomeSweetHome
