@@ -1,10 +1,14 @@
 AUTHOR = 'Avez Shariq'
+CURRENT_YEAR = 2026
 SITENAME = 'Avez Portfolio'
 SITEURL = ""
 
 PATH = "content"
+THEME = "theme/aubergene"
 STATIC_PATHS = ["assets"]
-THEME_TEMPLATES_OVERRIDES = ["templates"]
+GITHUB_URL = None
+DISQUS_SITENAME = None
+GOOGLE_ANALYTICS = None
 
 TIMEZONE = 'Asia/Kolkata'
 
@@ -29,7 +33,7 @@ SOCIAL = [
     ("Another social link", "#"),
 ]
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 3
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True

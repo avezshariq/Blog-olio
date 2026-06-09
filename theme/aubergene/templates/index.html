@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="topic-filter">
+    <span class="filter-label">Topics:</span>
+    <a href="{{ SITEURL }}/category/python.html" class="topic-badge python-bg">Python</a>
+    <a href="{{ SITEURL }}/category/sql.html" class="topic-badge sql-bg">SQL</a>
+</div>
+
+<section class="blog-stream">
+    <h1 class="page-title">Articles</h1>
+
+    <div class="post-cards">
+        {% for article in articles_page.object_list %}
+        <article class="post-card">
+            {% if article.cover %}
+            <div class="card-cover">
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    <img src="{{ SITEURL }}/{{ article.cover }}" alt="{{ article.title }} cover image" loading="lazy">
+                </a>
+            </div>
+            {% endif %}
+            <div class="card-meta">
+                <time>{{ article.locale_date }}</time>
+                <span class="post-category {{ article.category|lower }}-text">{{ article.category }}</span>
+            </div>
+            <h2 class="card-title">
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            </h2>
+            <p class="card-summary">{{ article.summary|striptags|truncate(140) }}</p>
+        </article>
+        {% else %}
+        <p>No articles posted under Python or SQL yet!</p>
+        {% endfor %}
+    </div>
+
+    {% if articles_page.has_other_pages() %}
+    <nav class="pagination" aria-label="Pagination Navigation">
+        {% if articles_page.has_previous() %}
+        <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="pag-btn">&larr; Newer</a>
+        {% else %}
+        <span class="pag-btn disabled">&larr; Newer</span>
+        {% endif %}
+
+        <span class="pag-info">Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+
+        {% if articles_page.has_next() %}
+        <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="pag-btn">Older &rarr;</a>
+        {% else %}
+        <span class="pag-btn disabled">Older &rarr;</span>
+        {% endif %}
+    </nav>
+    {% endif %}
+</section>
+
+{% endblock %}
