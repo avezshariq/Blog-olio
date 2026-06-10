@@ -22,7 +22,7 @@
             {% endif %}
             <div class="card-meta">
                 <time>{{ article.locale_date }}</time>
-                <span class="post-category {{ article.category|lower }}-text">{{ article.category }}</span>
+                <span class="topic-badge {{ article.category|lower }}-bg">{{ article.category }}</span>
             </div>
             <h2 class="card-title">
                 <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>

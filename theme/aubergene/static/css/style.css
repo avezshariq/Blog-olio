@@ -1,28 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Borel&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 
+/* base = #9580ff */
+
 html[data-theme="light"] {
-    --bg-color: #f5f6f9;      
-    --text-color: #343b58;     
-    --text-muted: #565f89;    
-    --border-color: #e1e4ea;   
-    --card-bg: #ffffff;        
-    --link-color: #9580ff;     
-    
-    --python-color: #7dcfff;   
-    --sql-color: #b15c00;      
+    --bg-color: #e8e7f1;
+    --text-color: #3c3859;
+    --text-muted: #8d89a8;
+    --border-color: #e1e4ea;
+    --card-bg: #ffffff;
+    --highlight-color: #9580ff;
+    --highlight-color-light: #d2cafa;
+
+    --python-color: #88f8af;
+    --sql-color: #ffd367;
 }
 
 html[data-theme="dark"] {
-    --bg-color: #171327;       
-    --text-color: #ffffff;     
-    --text-muted: #828189;   
-    --border-color: #24283b;   
-    --card-bg: #1f2335;        
-    --link-color: #7aa2f7;     
-    
-    --python-color: #7dcfff;   
-    --sql-color: #ff9e64;      
+    --bg-color: #171327;
+    --text-color: #ffffff;
+    --text-muted: #828189;
+    --border-color: #24283b;
+    --card-bg: #1f2335;
+    --highlight-color: #7aa2f7;
+
+    --python-color: #7dcfff;
+    --sql-color: #ffd367;
 }
 
 * {
@@ -37,7 +40,13 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.5;
+    min-height: 100vh;
     transition: background-color 0.2s ease;
+    background:
+        radial-gradient(circle at -15% -15%, var(--highlight-color-light) 0%, transparent 40%),
+        radial-gradient(circle at 115% 115%, var(--highlight-color-light) 0%, var(--bg-color) 40%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 pre {
@@ -60,14 +69,13 @@ pre {
 /* --- Mobile First Header & Nav --- */
 .site-header {
     background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
     padding: 0.75rem 0;
+    box-shadow: 0 0 2rem -1rem var(--text-muted);
 }
 
 .header-container {
     display: flex;
     flex-direction: column;
-    /* Stacked layout on mobile views */
     align-items: center;
     gap: 0.75rem;
 }
@@ -82,7 +90,6 @@ pre {
 .site-nav {
     display: flex;
     flex-wrap: wrap;
-    /* Allows navigation items to wrap gracefully if space breaks */
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
@@ -90,16 +97,21 @@ pre {
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-muted);
-    padding: 0.5rem 0.75rem;
-    /* Large touch zone for phone screens */
-    font-size: 0.95rem;
-    font-weight: 500;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    background-color: var(--bg-color);
+    border-radius: 0.5rem;
+    transition: 0.2s;
+}
+
+.nav-link:hover {
+    background-color: var(--highlight-color-light);
+    /* color: var(--highlight-color); */
 }
 
 .nav-link.active {
-    color: var(--text-color);
-    border-bottom: 2px solid var(--link-color);
+    color: var(--highlight-color);
 }
 
 /* --- Python/SQL Topic Filters --- */
@@ -119,17 +131,17 @@ pre {
     font-size: 0.8rem;
     font-weight: bold;
     padding: 0.2rem 0.6rem;
-    border-radius: 4px;
+    border-radius: 0.3rem;
     text-decoration: none;
-    color: #fff !important;
+    color: var(--text-color) !important;
 }
 
 .python-bg {
-    background-color: #3572A5;
+    background-color: var(--python-color);
 }
 
 .sql-bg {
-    background-color: #e38c00;
+    background-color: var(--sql-color);
 }
 
 /* --- Post Cards Layout --- */
@@ -142,31 +154,20 @@ pre {
 
 .post-card {
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    box-shadow: 0 0 2rem -1rem var(--text-muted);
+    border-radius: 1rem;
     padding: 1.25rem;
 }
 
 .card-meta {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-top: 1rem;
 }
 
-.python-text {
-    background-color: var(--python-color);
-    padding: 0.5rem;
-    color: black;
-    border-radius: 0.5rem;
-    font-weight: 600;
-}
-
-.sql-text {
-    color: var(--sql-color);
-    font-weight: 600;
-}
 
 .card-title {
     margin: 0.5rem 0 0 0;
@@ -175,13 +176,13 @@ pre {
 }
 
 .card-title a {
+    color: var(--highlight-color);
     text-decoration: none;
-    color: var(--text-color);
 }
 
 .card-summary {
     margin: 0;
-    color: var(--text-muted);
+    color: var(--text-color);
     font-size: 1rem;
 }
 
@@ -196,7 +197,6 @@ pre {
 
 .pag-btn {
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
     color: var(--text-color);
     padding: 0.6rem 1rem;
     text-decoration: none;
@@ -272,7 +272,6 @@ html[data-theme="dark"] .moon-icon {
     overflow: hidden;
     /* Ensures image corners match the card border-radius */
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
     border-radius: 8px;
 }
 
