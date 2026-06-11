@@ -1,10 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="topic-filter">
-    <span class="filter-label">Topics:</span>
+<!-- <div class="topic-filter">
+    <span class="filter-label">Filter Topics:</span>
     <a href="{{ SITEURL }}/category/python.html" class="topic-badge python-bg">Python</a>
-    <a href="{{ SITEURL }}/category/sql.html" class="topic-badge sql-bg">SQL</a>
+    <a href="{{ SITEURL }}/category/sql.html" class="topic-badge">SQL</a>
+</div> -->
+
+<div class="topic-filter">
+    <span class="filter-label">Filter Topics:</span>
+    
+    {% for cat, articles in categories %}
+        {% set is_active = (category and category == cat) %}
+        
+        <a href="{% if is_active %}{{ SITEURL }}/{% else %}{{ SITEURL }}/{{ cat.url }}{% endif %}" 
+           class="topic-badge {% if is_active %}active{% endif %}">
+            {{ cat }}
+            {% if is_active %} <span class="clear-icon">✕</span>{% endif %}
+        </a>
+    {% endfor %}
 </div>
 
 <section class="blog-stream">
@@ -22,7 +36,7 @@
             {% endif %}
             <div class="card-meta">
                 <time>{{ article.locale_date }}</time>
-                <span class="topic-badge {{ article.category|lower }}-bg">{{ article.category }}</span>
+                <span class="card-badge {{ article.category|lower }}-bg">{{ article.category }}</span>
             </div>
             <h2 class="card-title">
                 <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
