@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- <div class="topic-filter">
-    <span class="filter-label">Filter Topics:</span>
-    <a href="{{ SITEURL }}/category/python.html" class="topic-badge python-bg">Python</a>
-    <a href="{{ SITEURL }}/category/sql.html" class="topic-badge">SQL</a>
-</div> -->
 
 <div class="topic-filter">
     <span class="filter-label">Filter Topics:</span>
@@ -36,7 +31,7 @@
             {% endif %}
             <div class="card-meta">
                 <time>{{ article.locale_date }}</time>
-                <span class="card-badge {{ article.category|lower }}-bg">{{ article.category }}</span>
+                <span class="card-badge">{{ article.category }}</span>
             </div>
             <h2 class="card-title">
                 <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>

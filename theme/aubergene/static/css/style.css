@@ -4,7 +4,7 @@
 /* base = #9580ff */
 
 html[data-theme="light"] {
-    --bg-color-highlight: #d2cafa;
+    --bg-color-highlight: #beb3f7;
     --bg-color-normal: #e8e7f1;
     --text-color: #3c3859;
     --text-muted: #8d89a8;
@@ -24,7 +24,7 @@ html[data-theme="dark"] {
     --text-color: #e2e1e9;
     --text-muted: #8d89a8;
     --shadow-color: black;
-    --card-bg-highlight: #241957;
+    --card-bg-highlight: #312567;
     --card-bg-normal: #201b35;
     --highlight-color: #9580ff;
     --highlight-color-light: #4a3899;
@@ -50,18 +50,35 @@ body {
         radial-gradient(circle at -15% -15%, var(--bg-color-highlight) 0%, transparent 40%),
         radial-gradient(circle at 115% 115%, var(--bg-color-highlight) 0%, var(--bg-color-normal) 40%);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 
 pre {
     font-family: "JetBrains Mono", monospace;
-    padding: 1rem;
-    overflow-x: auto;
-    border-radius: 6px;
-    border: 1px solid var(--shadow-color);
-    background-color: var(--code-bg) !important;
+    padding: 0;
+    overflow-x: auto;    
+    margin: 0.5rem;
+}
+
+
+.code-block {
+    background-color: var(--card-bg-normal);
+    border-radius: 0 1rem 1rem 0;
+    border-left: 0.3rem solid var(--highlight-color-light);
+    font-size: 1rem;
+}
+
+code {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.9rem;
+    background-color: var(--card-bg-normal);
+    font-size: 1rem;
+}
+
+
+
+.normal {
+    color: var(--text-muted);
+    font-size: 0.8rem;
 }
 
 .container {
@@ -111,11 +128,10 @@ pre {
 
 .nav-link:hover {
     background-color: var(--highlight-color-light);
-    /* color: var(--highlight-color); */
 }
 
 .nav-link.active {
-    color: var(--highlight-color);
+    background-color: var(--highlight-color-light);
 }
 
 /* --- Python/SQL Topic Filters --- */
@@ -131,14 +147,6 @@ pre {
     color: var(--text-muted);
 }
 
-
-.python-bg {
-    background-color: var(--python-color);
-}
-
-.sql-bg {
-    background-color: var(--sql-color);
-}
 
 /* --- Post Cards Layout --- */
 .post-cards {
@@ -328,4 +336,8 @@ html[data-theme="dark"] .moon-icon {
 a {
     color: var(--highlight-color);
     text-decoration: var(--highlight-color) underline;
+}
+
+img {
+    width: 100%;
 }

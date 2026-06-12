@@ -10,6 +10,18 @@ GITHUB_URL = None
 DISQUS_SITENAME = None
 GOOGLE_ANALYTICS = None
 
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {
+            'css_class': 'code-block',
+            'linenums': True,  
+        },
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5',
+}
+
 TIMEZONE = 'Asia/Kolkata'
 
 DEFAULT_LANG = 'en'
